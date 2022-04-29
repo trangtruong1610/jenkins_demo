@@ -10,6 +10,7 @@ pipeline{
         stage('Build stage'){
             steps{
                 withDockerRegistry(credentialsId: 'docker', url: 'https://index.docker.io/v1/') {
+                    sh '/bin/bash docker ps'
                     sh 'docker build -t trangtruong1610/jenkins_test_1 .'
                     sh 'docker push trangtruong1610/jenkins_test_1'
                 }
