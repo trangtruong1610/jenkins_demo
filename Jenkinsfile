@@ -5,6 +5,7 @@ pipeline{
             steps{
                 git 'https://github.com/trangtruong1610/jenkins_demo.git'
             }
+        }
         stage('Clone'){
             steps{
                 withDockerRegistry(credentialsId: 'docker-hub', url: 'https://index.docker.io/v1/') {
