@@ -1,0 +1,1 @@
+docker run -d -p8080:80800 --name jenkins -v /var/run/docker.sock:/var/run/docker.sock -v /Users/trangtruong/Desktop/jenkins:/var/jenkins_home trangtruong1610/jenkins_test_1:v1
