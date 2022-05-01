@@ -16,18 +16,23 @@ pipeline{
         //     }
         // }
 
-        stage('SSH stage'){
-            steps{
-                sshagent(['ssh-remote']) {
-                    sh 'ssh -l trang 35.187.235.57 touch /tmp/aqa/test_jenkins_ssh1'
-                }
-            }
+        // stage('SSH stage'){
+        //     steps{
+        //         sshagent(['ssh-remote']) {
+        //             sh 'ssh -l trang 35.187.235.57 touch /tmp/aqa/test_jenkins_ssh1'
+        //         }
+        //     }
+        // }
+
+
+
+
+
+
+    }
+    post{
+        always{
+            mail bcc: '', body: 'hihihihihohoho', cc: '', from: '', replyTo: '', subject: 'test email from jenkins', to: 'trangtruong1610@gmail.com'
         }
-
-
-
-
-
-
     }
 }
