@@ -17,8 +17,10 @@ pipeline{
         }
 
         stage('SSH stage'){
-            sshagent(['ssh-remote']) {
-                sh 'touch /tmp/aqa/test_jenkins_ssh'
+            steps{
+                sshagent(['ssh-remote']) {
+                    sh 'touch /tmp/aqa/test_jenkins_ssh'
+                }
             }
         }
 
