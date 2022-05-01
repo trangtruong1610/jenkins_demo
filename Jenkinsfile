@@ -30,9 +30,11 @@ pipeline{
 
 
     }
-    post{
-        always{
-            mail bcc: '', body: 'hihihihihohoho', cc: '', from: '', replyTo: '', subject: 'test email from jenkins', to: 'trangtruong1610@gmail.com'
-        }
-    }
+
+    // after execute all stages always call post sending email, stage can be fail or success
+    // post{
+    //     always{
+    //         mail bcc: '', body: 'hihihihihohoho', cc: '', from: '', replyTo: '', subject: 'test email from jenkins', to: 'trangtruong1610@gmail.com'
+    //     }
+    // }
 }
