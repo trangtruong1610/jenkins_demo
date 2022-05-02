@@ -10,8 +10,8 @@ pipeline{
         //TODO run robot using docker on jenkins
         stage('Functional regression tests') {
             steps {
-                // sh 'chmod +x /var/jenkins_home/workspace/robot-framework-on-jenkins-remote/tests/test.robot'
-                sh 'docker run -v $WORKSPACE/tests:/opt/robotframework/tests:Z -e ROBOT_TESTS_DIR=/opt/robotframework/tests -e BROWSER="chrome" ppodgorsek/robot-framework:latest'
+                sh 'pwd'
+                // sh 'docker run -v $WORKSPACE/tests:/opt/robotframework/tests:Z -e ROBOT_TESTS_DIR=/opt/robotframework/tests -e BROWSER="chrome" ppodgorsek/robot-framework:latest'
             }
         }
 
