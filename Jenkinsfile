@@ -9,8 +9,8 @@ pipeline{
 
         stage('Functional regression tests') {
             steps {
-                sh 'docker run --rm -v $WORKSPACE/test:/robot moleszek/robotframework:latest -m robot test.robot'
-                // sh 'docker run -v $WORKSPACE/report:/opt/robotframework/reports:Z -v $WORKSPACE/test:/opt/robotframework/tests:Z -e BROWSER="chrome" ppodgorsek/robot-framework:latest'
+                // sh 'docker run --rm -v $WORKSPACE/test:/robot moleszek/robotframework:latest -m robot test.robot'
+                sh 'docker run -v $WORKSPACE/test:/opt/robotframework/tests:Z -e BROWSER="chrome" ppodgorsek/robot-framework:latest'
             }
         }
 
