@@ -9,7 +9,7 @@ pipeline{
 
         stage('Functional regression tests') {
             steps {
-                sh "docker run --shm-size=1g -e BROWSER=chrome -v /var/jenkins_home/workspace/robot-framework-on-jenkins-remote/robot-tests:/opt/robotframework/tests:Z ppodgorsek/robot-framework:latest"
+                sh "docker run --shm-size=1g -e BROWSER=chrome -v $WORKSPACE/robot-tests:/opt/robotframework/ ppodgorsek/robot-framework:latest"
             }
         }
 
@@ -21,7 +21,6 @@ pipeline{
         //         environment {
         //             BROWSER = 'firefox'
         //             ROBOT_TESTS_DIR = "$WORKSPACE/robot-tests"
-        //             ROBOT_REPORTS_DIR = "$WORKSPACE/robot-reports"
         //         }
         //         steps {
         //             sh '''
@@ -29,6 +28,8 @@ pipeline{
         //             '''
         //         }
         //     }
+
+
         // stage('Build docker stage'){
         //     steps{
         //         withDockerRegistry(credentialsId: 'docker', url: 'https://index.docker.io/v1/') {
