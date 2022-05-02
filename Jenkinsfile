@@ -9,7 +9,8 @@ pipeline{
 
         stage('Functional regression tests') {
             steps {
-                sh "sudo docker run -v $WORKSPACE/report:/opt/robotframework/reports:Z -v $WORKSPACE/test:/opt/robotframework/tests:Z -e BROWSER='chrome' ppodgorsek/robot-framework:latest"
+                sh 'docker ps'
+                sh 'docker run -v $WORKSPACE/report:/opt/robotframework/reports:Z -v $WORKSPACE/test:/opt/robotframework/tests:Z -e BROWSER="chrome" ppodgorsek/robot-framework:latest'
             }
         }
 
