@@ -9,8 +9,8 @@ pipeline{
 
         stage('Functional regression tests') {
             steps {
-                sh 'chmod +x /var/jenkins_home/workspace/robot-framework-on-jenkins-remote/tests/test.robot'
-                sh 'docker run -v /var/jenkins_home/workspace/robot-framework-on-jenkins-remote/tests/test.robot:/opt/robotframework/tests/test.robot:Z -e BROWSER="chrome" ppodgorsek/robot-framework:latest'
+                // sh 'chmod +x /var/jenkins_home/workspace/robot-framework-on-jenkins-remote/tests/test.robot'
+                sh 'docker run -v /var/jenkins_home/workspace/robot-framework-on-jenkins-remote/tests:/opt/robotframework/tests:Z -e BROWSER="chrome" ppodgorsek/robot-framework:latest'
             }
         }
 
