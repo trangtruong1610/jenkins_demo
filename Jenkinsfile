@@ -9,7 +9,7 @@ pipeline{
 
         stage('Functional regression tests') {
             steps {
-                sh "docker run --user=2000 --shm-size=1g -e BROWSER=chrome -v $WORKSPACE/tests:/opt/robotframework/tests:Z ppodgorsek/robot-framework"
+                sh "docker run --user=2000 --shm-size=1g -e BROWSER=chrome -e ROBOT_TESTS_DIR=./tests/tests/test.robot ppodgorsek/robot-framework"
             }
         }
 
