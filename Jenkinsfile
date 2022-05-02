@@ -11,7 +11,7 @@ pipeline{
         stage('Functional regression tests') {
             steps {
                 sh 'pwd'
-                sh 'docker run -v $PWD/tests:/opt/robotframework/tests:Z -e ROBOT_TESTS_DIR=/opt/robotframework/tests -e BROWSER="chrome" ppodgorsek/robot-framework:latest'
+                sh 'docker run --user=root -v $PWD/tests:/opt/robotframework/tests:Z -e ROBOT_TESTS_DIR=/opt/robotframework/tests -e BROWSER="chrome" ppodgorsek/robot-framework:latest'
             }
         }
 
