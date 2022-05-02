@@ -7,27 +7,27 @@ pipeline{
             }
         }
 
+        stage('Functional regression tests') {
+            steps {
+                sh "docker run --shm-size=1g -e BROWSER=chrome -v $WORKSPACE/robot-tests:/opt/robotframework/ ppodgorsek/robot-framework"
+            }
+        }
+
         // stage('Functional regression tests') {
+        //     agent { docker {
+        //         image 'ppodgorsek/robot-framework:latest'
+        //         args '--shm-size=1g -u root' }
+        //     }
+        //     environment {
+        //         BROWSER = 'chrome'
+        //         ROBOT_TESTS_DIR = "$WORKSPACE/robot-tests"
+        //     }
         //     steps {
-        //         sh "docker run --shm-size=1g -e BROWSER=chrome -v $WORKSPACE/robot-tests:/opt/robotframework/ ppodgorsek/robot-framework:latest"
+        //         sh '''
+        //             /opt/robotframework/robot-tests/test.robot
+        //         '''
         //     }
         // }
-
-        stage('Functional regression tests') {
-                agent { docker {
-                    image 'ppodgorsek/robot-framework:latest'
-                    args '--shm-size=1g -u root' }
-                }
-                environment {
-                    BROWSER = 'chrome'
-                    ROBOT_TESTS_DIR = "$WORKSPACE/robot-tests"
-                }
-                steps {
-                    sh '''
-                        /opt/robotframework/robot-tests/test.robot
-                    '''
-                }
-            }
 
 
         // stage('Build docker stage'){
