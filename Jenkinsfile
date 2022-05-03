@@ -8,10 +8,27 @@ pipeline{
         }
 
         //TODO run robot using docker on jenkins
+//         stage('Functional regression tests') {
+//             steps {
+//                 sh 'pwd'
+//                 sh 'docker run -u root -v $PWD/tests:/opt/robotframework/tests:Z -e BROWSER="chrome" ppodgorsek/robot-framework:latest'
+//             }
+//         }
+
         stage('Functional regression tests') {
+            agent {
+                docker {
+                    image 'ppodgorsek/robot-framework:latest'
+                    args '--shm-size=1g -u root'
+                }
+            }
+            environment {
+                BROWSER = 'chrome'
+                ROBOT_TESTS_DIR = "$WORKSPACE/tests"
+            }
+
             steps {
-                sh 'pwd'
-                sh 'docker run -u root -v $PWD/tests:/opt/robotframework/tests:Z -e BROWSER="chrome" ppodgorsek/robot-framework:latest'
+                sh '/opt/robotframework/tests/test.robot'
             }
         }
 
@@ -22,7 +39,7 @@ pipeline{
         //     }
         //     environment {
         //         BROWSER = 'chrome'
-        //         ROBOT_TESTS_DIR = "$WORKSPACE/robot-tests"
+        //         ROBOT_TESTS_DIR = "$WORKSPACE/tests"
         //     }
         //     steps {
         //         sh '''
