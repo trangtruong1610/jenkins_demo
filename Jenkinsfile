@@ -24,7 +24,7 @@ pipeline{
             }
             environment {
                 BROWSER = 'chrome'
-                ROBOT_TESTS_DIR = "$PWD/tests"
+//                 ROBOT_TESTS_DIR = "$PWD/tests"
             }
 
             steps {
