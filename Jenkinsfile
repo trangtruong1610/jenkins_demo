@@ -28,7 +28,7 @@ pipeline{
             }
 
             steps {
-                sh '/opt/robotframework/tests/test.robot'
+                sh '/opt/robotframework/bin/run-tests-in-virtual-screen.sh'
             }
         }
 
