@@ -24,11 +24,11 @@ pipeline{
             }
             environment {
                 BROWSER = 'chrome'
-                ROBOT_TESTS_DIR = "$WORKSPACE/tests"
+                ROBOT_TESTS_DIR = "$PWD/tests"
             }
 
             steps {
-                sh '/opt/robotframework/bin/run-tests-in-virtual-screen.sh'
+                sh 'ls /opt/robotframework/tests'
             }
         }
 
